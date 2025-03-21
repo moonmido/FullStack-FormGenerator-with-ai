@@ -1,12 +1,13 @@
 document.getElementById("fetchFormButton").addEventListener("click", fetchForm);
 
 function fetchForm() {
+    const userData = document.getElementById("userQuery").value;
     fetch("http://localhost:8080/generate-form", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ prompt: "real madrid regester academy new players" }) 
+        body: JSON.stringify({ prompt: userData }) 
     })
     .then(response => response.json())
     .then(data => {
